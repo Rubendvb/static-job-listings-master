@@ -46,6 +46,7 @@ header {
     all: unset;
     color: var(--Dark-Grayish-Cyan);
     font-weight: var(--font-500);
+    cursor: pointer;
   }
 }
 
