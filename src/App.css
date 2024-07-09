@@ -1,5 +1,4 @@
 #root {
-  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -12,11 +11,16 @@ header {
 }
 
 main {
+  height: 100dvh;
   background-color: var(--Light-Grayish-Cyan-Background);
   padding: 54px 24px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media only screen and (min-width: 768px) {
+    align-items: center;
+  }
 }
 
 .card {
@@ -25,20 +29,45 @@ main {
   -moz-box-shadow: 0px 10px 20px 0px rgba(91, 164, 164, 0.5);
   box-shadow: 0px 10px 20px 0px rgba(91, 164, 164, 0.5);
   border-radius: 6px;
-  border-left: 5px solid var(--Desaturated-Dark-Cyan);
   padding: 32px 24px 24px;
   position: relative;
+  width: 100%;
+
+  &.featured {
+    border-left: 5px solid var(--Desaturated-Dark-Cyan);
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 1110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 42px;
+  }
 }
 
 .card-img {
   position: absolute;
   width: 48px;
   top: -25px;
+
+  @media only screen and (min-width: 768px) {
+    position: initial;
+    width: 90px;
+  }
 }
 
 .card-left {
   border-bottom: 1px solid var(--Dark-Grayish-Cyan);
   padding-bottom: 20px;
+
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    border: 0;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 0;
+  }
 }
 
 .card-top {
@@ -56,6 +85,10 @@ main {
     font-size: 14px;
     color: var(--Desaturated-Dark-Cyan);
     font-weight: var(--font-700);
+
+    @media only screen and (min-width: 768px) {
+      font-size: 16px;
+    }
   }
 }
 
@@ -70,6 +103,10 @@ main {
     padding: 8px;
     border-radius: 999px;
     text-transform: uppercase;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   .new {
@@ -85,6 +122,14 @@ h2 {
   font-size: 14px;
   color: var(--Very-Dark-Grayish-Cyan);
   font-weight: var(--font-700);
+
+  @media only screen and (min-width: 768px) {
+    font-size: 22px;
+    &:hover {
+      cursor: pointer;
+      color: var(--Desaturated-Dark-Cyan);
+    }
+  }
 }
 
 .info {
@@ -97,6 +142,10 @@ h2 {
     color: var(--Dark-Grayish-Cyan);
     font-weight: var(--font-500);
     position: relative;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 16px;
+    }
 
     &:first-child::before {
       content: '';
@@ -116,13 +165,23 @@ h2 {
   gap: 16px;
   flex-wrap: wrap;
 
-  span {
+  button {
+    all: unset;
     font-size: 15px;
     color: var(--Desaturated-Dark-Cyan);
     font-weight: var(--font-700);
     background-color: var(--Light-Grayish-Cyan-Background);
     padding: 10px;
     border-radius: 6px;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 17px;
+      &:hover {
+        cursor: pointer;
+        background-color: var(--Desaturated-Dark-Cyan);
+        color: #fff;
+      }
+    }
   }
 }
 
