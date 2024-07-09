@@ -40,7 +40,7 @@ function App() {
                 <span key={filter} className="span-filter">
                   {filter}
                   <button onClick={() => deleteFilter(filter)}>
-                    <img src="/public/images/icon-remove.svg" alt="" />
+                    <img src="/images/icon-remove.svg" alt="" />
                   </button>
                 </span>
               ))}
