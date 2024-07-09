@@ -12,6 +12,7 @@ function App() {
   const getJobs = () => {
     setJobs(data)
   }
+
   useEffect(() => {
     getJobs()
   }, [])
