@@ -1,6 +1,23 @@
 import { IJob } from '../../@types/jobs'
 
-export default function Card({ job }: { job: IJob }) {
+interface ICard {
+  job: IJob
+  setFiltered: React.Dispatch<React.SetStateAction<string[]>>
+  filtered: string[]
+}
+
+export default function Card({ job, setFiltered }: ICard) {
+  function selectFilter(filter: string | undefined) {
+    setFiltered((prev) => {
+      if (!prev.includes(filter as string)) {
+        // return prev.filter((item) => item !== filter)
+        return [...prev, filter as string]
+      }
+
+      return prev
+    })
+  }
+
   return (
     <article className={`card ${job.featured && job.new ? 'featured' : ''}`}>
       <div className="card-left">
@@ -24,10 +41,18 @@ export default function Card({ job }: { job: IJob }) {
         </div>
       </div>
       <div className="card_right">
-        <button data-role={`${job.role}`} className="role">
+        <button
+          data-role={`${job.role}`}
+          className="role"
+          onClick={(e) => selectFilter(e.currentTarget.dataset.role)}
+        >
           {job.role}
         </button>
-        <button data-level={`${job.level}`} className="level">
+        <button
+          data-level={`${job.level}`}
+          className="level"
+          onClick={(e) => selectFilter(e.currentTarget.dataset.level)}
+        >
           {job.level}
         </button>
         {job.languages &&
@@ -36,6 +61,7 @@ export default function Card({ job }: { job: IJob }) {
               key={language}
               data-languages={`${language}`}
               className="languages"
+              onClick={(e) => selectFilter(e.currentTarget.dataset.languages)}
             >
               {language}
             </button>
@@ -43,7 +69,12 @@ export default function Card({ job }: { job: IJob }) {
 
         {job.tools &&
           job.tools.map((tool) => (
-            <button key={tool} data-tools={`${tool}`} className="tools">
+            <button
+              key={tool}
+              data-tools={`${tool}`}
+              className="tools"
+              onClick={(e) => selectFilter(e.currentTarget.dataset.tools)}
+            >
               {tool}
             </button>
           ))}

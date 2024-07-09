@@ -37,6 +37,7 @@ svg {
 
 body {
   min-height: 100dvh;
+  background-color: var(--Light-Grayish-Cyan-Background);
 }
 
 h1,
