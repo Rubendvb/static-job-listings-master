@@ -260,9 +260,12 @@ h2 {
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: 14px;
   text-align: center;
+  color: var(--Very-Dark-Grayish-Cyan);
+  text-shadow: 0px 3px 11px var(--Desaturated-Dark-Cyan);
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--Desaturated-Dark-Cyan);
+  font-weight: var(--font-700);
 }
