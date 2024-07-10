@@ -9,6 +9,10 @@ header {
   background-color: var(--Desaturated-Dark-Cyan);
   background-size: cover;
   height: 156px;
+
+  @media only screen and (min-width: 890px) {
+    background-image: url('/images/bg-header-desktop.svg');
+  }
 }
 
 .container-main {
